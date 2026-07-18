@@ -24,7 +24,7 @@ WoTSTATS collects only the information needed to provide its features, operate t
 - Public account, vehicle, and clan information requested for bot commands.
 - For commands about your own linked account, the service may retrieve economy fields such as credits, gold, free experience, and bonds. These fields are fetched for that response and are not stored as command telemetry or durable private-stat records.
 
-WoTSTATS does not receive your Wargaming password, email address, or phone number. The rebuilt first-wave service uses the official Wargaming API only. It does not share Wargaming tokens or private account fields with optional statistics providers.
+WoTSTATS does not receive your Wargaming password, email address, or phone number. Player-specific public and private account requests use the official Wargaming API. The optional WN8 enrichment uses a cached global expected-values table published by ModXVM; WoTSTATS does not send ModXVM your account ID, nickname, Discord ID, realm, command context, Wargaming token, or private account fields. WN8 is calculated inside WoTSTATS from that global table and official public per-tank totals.
 
 ### Usage and error information
 
@@ -66,7 +66,7 @@ During an active window, a bounded copy of your reply and up to three attachment
 | Successful job history and delivered work items | Deleted after 30 days. Failed, skipped, or cancelled job records are deleted after 90 days. |
 | Routine structured logs | Target retention of 30 days with size limits; secret and message-content fields are prohibited. |
 | Sanitized reproducible errors | May be retained indefinitely so old or rarely reported bugs can be investigated. Exact user, server, channel, or game-account identifiers are stored separately under restricted access and are erased when a valid deletion request applies; non-identifying technical history may remain. |
-| Public/provider cache | Used only through its recorded freshness period and contains no access token or private economy fields. |
+| Public/provider cache | Contains only normalized global/public reference data with source, freshness, and bounded technical-status metadata—never an access token, Discord identifier, player identifier, or private economy field. Entries that remain expired for more than 30 days are deleted. |
 
 The current isolated staging service contains no imported live-user dataset. Its public callback route accepts only the account-link callback and a minimal liveness check; readiness and operator detail remain private. Its local same-disk database dump is operational rehearsal evidence, not disaster recovery. An encrypted off-host production backup policy and its retention period must be tested and added to this notice before production launch; this notice makes no claim that such backups already exist.
 
@@ -75,10 +75,11 @@ The current isolated staging service contains no imported live-user dataset. Its
 WoTSTATS communicates with:
 
 - Discord, to register and respond to bot interactions and deliver invited support messages;
-- Wargaming's official API, to authorize linked accounts and retrieve requested World of Tanks information; and
+- Wargaming's official API, to authorize linked accounts and retrieve requested World of Tanks information;
+- ModXVM, to retrieve a provider-published global static WN8 expected-values table without sending a user or player identifier; and
 - Cloudflare, when the approved public callback hostname is enabled, to route and protect the web callback.
 
-Those providers process information under their own terms and privacy notices. Optional statistics sites, Top.gg posting, clan-reserve automation, and other premium/test features are not part of the rebuilt first-wave service. If a later feature changes the data shared or collected, this notice must be updated before that feature is enabled.
+Those providers process information under their own terms and privacy notices. Other optional statistics sites, Top.gg posting, clan-reserve automation, and premium/test features are not enabled. If a later feature changes the data shared or collected, this notice must be updated before that feature is enabled.
 
 ## Your choices and requests
 
