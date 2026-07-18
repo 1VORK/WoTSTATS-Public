@@ -1,21 +1,21 @@
-# WoTSTATS Sol privacy and data usage notice
+# WoTSTATS privacy and data usage notice
 
 **Effective date:** 2026-07-18
 
-WoTSTATS Sol is a Discord bot that connects Discord users with World of Tanks data. It is operated by IVORK (`140902977618706432`) and is not endorsed by Wargaming.net. World of Tanks and Wargaming.net are trademarks or registered trademarks of their respective owners. WoTSTATS Sol is independent of WoTstats.org.
+WoTSTATS is a Discord bot that connects Discord users with World of Tanks data. It is operated by IVORK (`140902977618706432`) and is not endorsed by Wargaming.net. World of Tanks and Wargaming.net are trademarks or registered trademarks of their respective owners. WoTSTATS is independent of WoTstats.org.
 
-This notice describes the rebuilt WoTSTATS Sol service. It does not replace the separate historical notice used by the legacy bot.
+This notice describes the rebuilt WoTSTATS service. It does not replace the separate historical notice used by the legacy bot.
 
-## What WoTSTATS Sol collects
+## What WoTSTATS collects
 
-WoTSTATS Sol collects only the information needed to provide its features, operate the service, and investigate failures.
+WoTSTATS collects only the information needed to provide its features, operate the service, and investigate failures.
 
 ### Discord information
 
 - Your Discord user ID when you link a World of Tanks account, change a personal setting, unlink, or use an invited support conversation.
-- A server's Discord ID, owner ID, observed inviter ID where available, initial member-count classification, and its WoTSTATS Sol settings.
+- A server's Discord ID, owner ID, observed inviter ID where available, initial member-count classification, and its WoTSTATS settings.
 - Discord channel or role IDs only when a server administrator configures a feature that needs them.
-- WoTSTATS Sol does not build or retain a general directory of every member in a Discord server.
+- WoTSTATS does not build or retain a general directory of every member in a Discord server.
 
 ### World of Tanks information
 
@@ -24,7 +24,7 @@ WoTSTATS Sol collects only the information needed to provide its features, opera
 - Public account, vehicle, and clan information requested for bot commands.
 - For commands about your own linked account, the service may retrieve economy fields such as credits, gold, free experience, and bonds. These fields are fetched for that response and are not stored as command telemetry or durable private-stat records.
 
-WoTSTATS Sol does not receive your Wargaming password, email address, or phone number. The rebuilt first-wave service uses the official Wargaming API only. It does not share Wargaming tokens or private account fields with optional statistics providers.
+WoTSTATS does not receive your Wargaming password, email address, or phone number. The rebuilt first-wave service uses the official Wargaming API only. It does not share Wargaming tokens or private account fields with optional statistics providers.
 
 ### Usage and error information
 
@@ -48,9 +48,9 @@ Authorization, privacy changes, server-setting changes, and other security-sensi
 
 ## Support direct messages
 
-WoTSTATS Sol does not monitor unsolicited direct messages. A support reply window opens only after the owner successfully sends you a message through the bot and remains open for 24 hours. Direct messages outside an active window are immediately ignored and are not logged.
+WoTSTATS does not monitor unsolicited direct messages. A support reply window opens only after the owner successfully sends you a message through the bot and remains open for 24 hours. Direct messages outside an active window are immediately ignored and are not logged.
 
-During an active window, a bounded copy of your reply and up to three attachment links may be forwarded to a restricted support channel in the operator's Discord test/support server. WoTSTATS Sol does not store that message body or its attachments in its application database or logs. The forwarded Discord message remains subject to Discord's own storage, privacy, and deletion behavior.
+During an active window, a bounded copy of your reply and up to three attachment links may be forwarded to a restricted support channel in the operator's Discord test/support server. WoTSTATS does not store that message body or its attachments in its application database or logs. The forwarded Discord message remains subject to Discord's own storage, privacy, and deletion behavior.
 
 ## How long information is kept
 
@@ -72,7 +72,7 @@ The current isolated staging service contains no imported live-user dataset and 
 
 ## Other services
 
-WoTSTATS Sol communicates with:
+WoTSTATS communicates with:
 
 - Discord, to register and respond to bot interactions and deliver invited support messages;
 - Wargaming's official API, to authorize linked accounts and retrieve requested World of Tanks information; and
