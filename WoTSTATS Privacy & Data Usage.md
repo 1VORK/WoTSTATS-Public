@@ -26,6 +26,8 @@ WoTSTATS collects only the information needed to provide its features, operate t
 
 WoTSTATS does not receive your Wargaming password, email address, or phone number. Player-specific public and private account requests use the official Wargaming API. The optional WN8 enrichment uses a cached global expected-values table published by ModXVM; WoTSTATS does not send ModXVM your account ID, nickname, Discord ID, realm, command context, Wargaming token, or private account fields. WN8 is calculated inside WoTSTATS from that global table and official public per-tank totals.
 
+When the optional `/fstats` command is enabled and invoked, WoTSTATS first resolves the requested player through Wargaming, then sends Tomato.gg that Wargaming account ID and mapped realm to request 30-day and 100-battle recent public statistics. Tomato.gg also receives ordinary request metadata such as the WoTSTATS server's network address and request time. WoTSTATS does not send Tomato.gg a Discord ID or nickname, Wargaming nickname or access token, private economy field, guild/channel/message context, or another player's battle participants. The Tomato response is used for that command response and is not stored as local player history or raw provider data. Existing minimized command telemetry does not store the target or returned statistics.
+
 ### Usage and error information
 
 - Minimized command telemetry records the feature used, outcome, response type, duration band, environment, and—when applicable—the server and channel IDs. It does not record the invoking user's ID, command arguments, message content, or returned private values.
@@ -78,10 +80,11 @@ WoTSTATS communicates with:
 
 - Discord, to register and respond to bot interactions and deliver invited support messages;
 - Wargaming's official API, to authorize linked accounts and retrieve requested World of Tanks information;
-- ModXVM, to retrieve a provider-published global static WN8 expected-values table without sending a user or player identifier; and
+- ModXVM, to retrieve a provider-published global static WN8 expected-values table without sending a user or player identifier;
+- Tomato.gg, only when optional `/fstats` is enabled and invoked, to retrieve recent public statistics using the requested Wargaming account ID and realm; and
 - Cloudflare, when the approved public callback hostname is enabled, to route and protect the web callback.
 
-Those providers process information under their own terms and privacy notices. Other optional statistics sites, Top.gg posting, clan-reserve automation, and premium/test features are not enabled. If a later feature changes the data shared or collected, this notice must be updated before that feature is enabled.
+Those providers process information under their own terms and privacy notices. Tomato.gg's policy is available at [tomato.gg/privacy-policy](https://tomato.gg/privacy-policy). Other optional statistics sites, Top.gg posting, clan-reserve automation, and premium/test features are not enabled. If a later feature changes the data shared or collected, this notice must be updated before that feature is enabled.
 
 ## Your choices and requests
 
