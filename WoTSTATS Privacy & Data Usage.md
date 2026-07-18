@@ -46,6 +46,8 @@ Private World of Tanks fields are available only when a linked user requests the
 
 Authorization, privacy changes, server-setting changes, and other security-sensitive interactions remain ephemeral regardless of this preference. Discord controls ephemeral-message delivery within its platform.
 
+If an authenticated linking attempt targets a World of Tanks account that is already linked to a different Discord user, WoTSTATS rejects it and leaves the original link unchanged. The existing owner may receive a rate-bounded security notice. That notice does not identify the other Discord user or include the account ID, nickname, realm, guild/channel, credential, or callback data. The failed authorization-session metadata and delivered notice work item follow the 30-day periods below.
+
 ## Support direct messages
 
 WoTSTATS does not monitor unsolicited direct messages. A support reply window opens only after the owner successfully sends you a message through the bot and remains open for 24 hours. Direct messages outside an active window are immediately ignored and are not logged.
