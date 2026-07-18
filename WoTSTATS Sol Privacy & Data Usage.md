@@ -68,7 +68,7 @@ During an active window, a bounded copy of your reply and up to three attachment
 | Sanitized reproducible errors | May be retained indefinitely so old or rarely reported bugs can be investigated. Exact user, server, channel, or game-account identifiers are stored separately under restricted access and are erased when a valid deletion request applies; non-identifying technical history may remain. |
 | Public/provider cache | Used only through its recorded freshness period and contains no access token or private economy fields. |
 
-The current isolated staging service contains no imported live-user dataset and has no public callback route. Its local same-disk database dump is operational rehearsal evidence, not disaster recovery. An encrypted off-host production backup policy and its retention period must be tested and added to this notice before production launch; this draft makes no claim that such backups already exist.
+The current isolated staging service contains no imported live-user dataset and has no public callback route. Its local same-disk database dump is operational rehearsal evidence, not disaster recovery. An encrypted off-host production backup policy and its retention period must be tested and added to this notice before production launch; this notice makes no claim that such backups already exist.
 
 ## Other services
 
