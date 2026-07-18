@@ -40,9 +40,9 @@ Private World of Tanks fields are available only when a linked user requests the
 
 | Mode | Command with no target, resolving to you | Command explicitly targeting you | Command targeting another player |
 |---|---|---|---|
-| `public` (default) | Public, including your private fields | Public, including your private fields | Public, without private fields |
-| `ephemeral` | Ephemeral, including your private fields | Ephemeral, including your private fields | Ephemeral, without private fields |
-| `balanced` | Public, without private fields | Ephemeral, including your private fields | Public, without private fields |
+| **Public** (default) | Public, including your private fields | Public, including your private fields | Public, without private fields |
+| **Balanced** | Public, without private fields | Ephemeral, including your private fields | Public, without private fields |
+| **Private** | Ephemeral, including your private fields | Ephemeral, including your private fields | Ephemeral, without private fields |
 
 Authorization, privacy changes, server-setting changes, and other security-sensitive interactions remain ephemeral regardless of this preference. Discord controls ephemeral-message delivery within its platform.
 
