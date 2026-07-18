@@ -46,6 +46,8 @@ Private World of Tanks fields are available only when a linked user requests the
 | **Balanced** | Public, without private fields | Ephemeral, including your private fields | Public, without private fields |
 | **Private** | Ephemeral, including your private fields | Ephemeral, including your private fields | Ephemeral, without private fields |
 
+For **Balanced** explicit targets, WoTSTATS compares the resolved Wargaming realm and account ID with your linked account. If that exact comparison cannot finish safely before Discord's initial-response deadline, the response fails private (ephemeral) rather than risk making an explicit-self response public.
+
 Authorization, privacy changes, server-setting changes, and other security-sensitive interactions remain ephemeral regardless of this preference. Discord controls ephemeral-message delivery within its platform.
 
 If an authenticated linking attempt targets a World of Tanks account that is already linked to a different Discord user, WoTSTATS rejects it and leaves the original link unchanged. The existing owner may receive a rate-bounded security notice. That notice does not identify the other Discord user or include the account ID, nickname, realm, guild/channel, credential, or callback data. The failed authorization-session metadata and delivered notice work item follow the 30-day periods below.
