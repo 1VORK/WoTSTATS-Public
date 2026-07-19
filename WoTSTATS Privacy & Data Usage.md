@@ -1,6 +1,6 @@
 # WoTSTATS privacy and data usage notice
 
-**Effective date:** 2026-07-18
+**Effective date:** 2026-07-19
 
 WoTSTATS is a Discord bot that connects Discord users with World of Tanks data. It is operated by IVORK (`140902977618706432`) and is not endorsed by Wargaming.net. World of Tanks and Wargaming.net are trademarks or registered trademarks of their respective owners. WoTSTATS is independent of WoTstats.org.
 
@@ -27,6 +27,8 @@ WoTSTATS collects only the information needed to provide its features, operate t
 WoTSTATS does not receive your Wargaming password, email address, or phone number. Player-specific public and private account requests use the official Wargaming API. The optional WN8 enrichment uses a cached global expected-values table published by ModXVM; WoTSTATS does not send ModXVM your account ID, nickname, Discord ID, realm, command context, Wargaming token, or private account fields. WN8 is calculated inside WoTSTATS from that global table and official public per-tank totals.
 
 When the optional `/fstats` command is enabled and invoked, WoTSTATS first resolves the requested player through Wargaming, then sends Tomato.gg that Wargaming account ID and mapped realm to request 30-day and 100-battle recent public statistics. Tomato.gg also receives ordinary request metadata such as the WoTSTATS server's network address and request time. WoTSTATS does not send Tomato.gg a Discord ID or nickname, Wargaming nickname or access token, private economy field, guild/channel/message context, or another player's battle participants. The Tomato response is used for that command response and is not stored as local player history or raw provider data. Existing minimized command telemetry does not store the target or returned statistics.
+
+When optional linked-account comparison is enabled for `/marks`, it applies only to the invoking user's linked account and only when the selected realm matches that link. WoTSTATS sends Tomato.gg the linked Wargaming account ID and mapped realm to request the player's lifetime overall response, which includes statistics for all tanks in Tomato.gg's response. WoTSTATS selects only the requested tank in memory, immediately discards the rest of that response, and does not store the raw response or selected statistics. Tomato.gg is not sent the Discord identity, Wargaming nickname or token, raw tank-name input, guild/channel/message context, or a separate tank ID. If the user is not linked, selects another realm, or the feature is disabled, `/marks` uses only the separately cached global requirements and makes no player request. A private, missing, or unavailable Tomato player response does not prevent the global requirements from being shown.
 
 ### Usage and error information
 
@@ -83,7 +85,7 @@ WoTSTATS communicates with:
 - Discord, to register and respond to bot interactions and deliver invited support messages;
 - Wargaming's official API, to authorize linked accounts and retrieve requested World of Tanks information;
 - ModXVM, to retrieve a provider-published global static WN8 expected-values table without sending a user or player identifier;
-- Tomato.gg, only when optional `/fstats` is enabled and invoked, to retrieve recent public statistics using the requested Wargaming account ID and realm; and
+- Tomato.gg, when optional `/fstats` is enabled and invoked, to retrieve recent public statistics using the requested Wargaming account ID and realm, and when optional linked-account `/marks` comparison is enabled, to retrieve and transiently project the invoking linked account's selected lifetime tank statistics from an overall response; and
 - Cloudflare, when the approved public callback hostname is enabled, to route and protect the web callback.
 
 Those providers process information under their own terms and privacy notices. Tomato.gg's policy is available at [tomato.gg/privacy-policy](https://tomato.gg/privacy-policy). Other optional statistics sites, Top.gg posting, clan-reserve automation, and premium/test features are not enabled. If a later feature changes the data shared or collected, this notice must be updated before that feature is enabled.
