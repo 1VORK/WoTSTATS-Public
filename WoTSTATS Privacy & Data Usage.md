@@ -30,6 +30,8 @@ When the optional `/fstats` command is enabled and invoked, WoTSTATS first resol
 
 When optional linked-account comparison is enabled for `/marks`, it applies only to the invoking user's linked account and only when the selected realm matches that link. WoTSTATS sends Tomato.gg the linked Wargaming account ID and mapped realm to request the player's lifetime overall response, which includes statistics for all tanks in Tomato.gg's response. WoTSTATS selects only the requested tank in memory, immediately discards the rest of that response, and does not store the raw response or selected statistics. Tomato.gg is not sent the Discord identity, Wargaming nickname or token, raw tank-name input, guild/channel/message context, or a separate tank ID. If the user is not linked, selects another realm, or the feature is disabled, `/marks` uses only the separately cached global requirements and makes no player request. A private, missing, or unavailable Tomato player response does not prevent the global requirements from being shown.
 
+When the optional `/chart` command is enabled and invoked, it applies only to the invoking user's linked account. WoTSTATS sends Tomato.gg that linked Wargaming account ID and mapped realm to request the provider-maintained lifetime progression response ordered by total battles. Tomato.gg also receives ordinary request metadata such as the WoTSTATS server's network address and request time. WoTSTATS strictly validates the approved response fields, selects only the requested metric, renders the chart in memory, and immediately discards the provider response and rendered bytes after Discord delivery. It does not create a chart file, provider cache, or local player-history record. WoTSTATS does not send Tomato.gg the Discord identity, nickname or token, Wargaming nickname or token, guild/channel/message context, or the selected chart metric. Unlinked or disabled requests make no Tomato player request.
+
 ### Usage and error information
 
 - Minimized command telemetry records the feature used, outcome, response type, duration band, environment, and—when applicable—the server and channel IDs. It does not record the invoking user's ID, command arguments, message content, or returned private values.
@@ -49,6 +51,8 @@ Private World of Tanks fields are available only when a linked user requests the
 | **Private** | Ephemeral, including your private fields | Ephemeral, including your private fields | Ephemeral, without private fields |
 
 For **Balanced** explicit targets, WoTSTATS compares the resolved Wargaming realm and account ID with your linked account. If that exact comparison cannot finish safely before Discord's initial-response deadline, the response fails private (ephemeral) rather than risk making an explicit-self response public.
+
+`/chart` uses a deliberately stricter visibility rule because it displays identified longitudinal progression: it is public only in **Public** mode and ephemeral in both **Balanced** and **Private** modes. It has no other-player target.
 
 Authorization, privacy changes, server-setting changes, and other security-sensitive interactions remain ephemeral regardless of this preference. Discord controls ephemeral-message delivery within its platform.
 
@@ -85,7 +89,7 @@ WoTSTATS communicates with:
 - Discord, to register and respond to bot interactions and deliver invited support messages;
 - Wargaming's official API, to authorize linked accounts and retrieve requested World of Tanks information;
 - ModXVM, to retrieve a provider-published global static WN8 expected-values table without sending a user or player identifier;
-- Tomato.gg, when optional `/fstats` is enabled and invoked, to retrieve recent public statistics using the requested Wargaming account ID and realm, and when optional linked-account `/marks` comparison is enabled, to retrieve and transiently project the invoking linked account's selected lifetime tank statistics from an overall response; and
+- Tomato.gg, when optional `/fstats` is enabled and invoked, to retrieve recent public statistics using the requested Wargaming account ID and realm; when optional linked-account `/marks` comparison is enabled, to retrieve and transiently project the invoking linked account's selected lifetime tank statistics from an overall response; and when optional `/chart` is enabled, to transiently render the invoking linked account's selected lifetime progression metric over total battles; and
 - Cloudflare, when the approved public callback hostname is enabled, to route and protect the web callback.
 
 Those providers process information under their own terms and privacy notices. Tomato.gg's policy is available at [tomato.gg/privacy-policy](https://tomato.gg/privacy-policy). Other optional statistics sites, Top.gg posting, clan-reserve automation, and premium/test features are not enabled. If a later feature changes the data shared or collected, this notice must be updated before that feature is enabled.
